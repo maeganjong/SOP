@@ -20,6 +20,12 @@ const styles = StyleSheet.create({
   },
   subcategoryLinks: {
     lineHeight: 40,
+  },
+  sTitle: {
+    textAlign: 'center',
+    fontSize: 22,
+    fontWeight: '300',
+    marginBottom: 20,
   }
 });
 
@@ -57,23 +63,21 @@ const cardiac = [
   { label: 'Subcategory5' },
   { label: 'Subcategory6' },
   { label: 'Subcategory7' },
-  { label: 'Subcategory8' },
-  { label: 'Subcategory9' },
-  { label: 'Subcategory10' },
+
 ]
 
 const categoryTouts = [ //the touts are the clickable image items that hold our links
-  { title: 'General Patient Management', links: categoryLinks },
-  { /*image: 'http://wallpaper-gallery.net/images/black-picture/black-picture-3.jpg', */title: 'Category2', links: respiratory },
-  { /*image: 'http://wallpaper-gallery.net/images/black-picture/black-picture-3.jpg', */title: 'Category3', links: categoryLinks },
+  { title: 'General Patient Management', links: categoryLinks, length: 8 },
+  { title: 'Category2', links: respiratory, length: 5 },
+  { title: 'Category3', links: categoryLinks, length:  8},
 ]
 
 const SUBCATEGORY_FADE_TIME = 400 //time in ms to fade in / out our subcategories when the accordion animates
 const SUBCATEGORY_HEIGHT = 40 //to save a costly measurement process, we know our subcategory items will always have a consistent height, so we can calculate how big the overall subcategory container height needs to expand to by multiplying this by the number of items
 const categoryLinksLength = categoryLinks.length //number of subcategory items - if we werent using the same set of links for all touts, we would need to store this within each tout class probably, to know how big each container should expand to to show all the links
 
-const subcategoryContainerHeight = categoryLinksLength * SUBCATEGORY_HEIGHT //total height for the container
-
+//const subcategoryContainerHeight = categoryLinksLength * SUBCATEGORY_HEIGHT //total height for the container
+// var heights = this.props.length * SUBCATEGORY_HEIGHT
 class CategoryLinks extends React.PureComponent { //using PureComponent will prevent unnecessary renders
 
   toutPositions = [] //will hold the measured offsets of each tout when unexpanded
@@ -106,10 +110,12 @@ class Tout extends React.PureComponent { //using PureComponent will prevent unne
   state = {
     toutSubcategoriesVisible: false, //true when we the tout has been clicked on and subcategory items are exposed
   }
+
   animatedValue = new Animated.Value(0) //we will animate this value between 0 and 1 to hide and show the subcategories
+
   animCategoryHeight = this.animatedValue.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, subcategoryContainerHeight], //when animated value is 1, the subcategory container will be equal to the number of links * each links height
+    outputRange: [0, this.props.length * SUBCATEGORY_HEIGHT], //when animated value is 1, the subcategory container will be equal to the number of links * each links height
   })
 
   measurements = {} //will hold each tout's location on the page so that we can automatically scroll it to the top of our view
@@ -235,6 +241,7 @@ export default class scrollAccordion extends React.PureComponent { //scroll acco
           ref={this.setScrollRef}
         >
           <View>
+            <Text style = {styles.sTitle}>Standard Operating Procedures</Text>
             {
               categoryTouts.map((tout, index) => {
                 return (
