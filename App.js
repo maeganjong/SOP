@@ -23,47 +23,116 @@ const styles = StyleSheet.create({
   }
 });
 
-const categoryLinks = [ //for the sake of simplicity, we use the same set of category links for all touts
-  { label: 'Subcategory1' },
-  { label: 'Subcategory2' },
-  { label: 'Subcategory3' },
-  { label: 'Subcategory4' },
-  { label: 'Subcategory5' },
-  { label: 'Subcategory6' },
-  { label: 'Subcategory7' },
-  { label: 'Subcategory8' },
-  { label: 'Subcategory9' },
-  { label: 'Subcategory10' },
+const general = [ //for the sake of simplicity, we use the same set of category links for all touts
+  { label: 'GENERAL PATIENT MANAGEMENT' },
+  { label: 'RESPIRATORY' },
+  { label: 'CARDIAC' },
+  { label: 'MEDICAL' },
+  { label: 'TRAUMA (adult and peds)' },
+  { label: 'OB' },
+  { label: 'PEDS' },
+  { label: 'APPENDIX' },
 ]
 
 const respiratory = [
   { label: 'Airway obstruction'},
   { label: 'Drug Assisted Intubation' },
-  { label: 'Subcategory3' },
-  { label: 'Subcategory4' },
-  { label: 'Subcategory5' },
-  { label: 'Subcategory6' },
-  { label: 'Subcategory7' },
-  { label: 'Subcategory8' },
-  { label: 'Subcategory9' },
-  { label: 'Subcategory10' },
+  { label: 'Allergic Reaction/Anaphylactic Shock' },
+  { label: 'Asthma/COPD' },
+  { label: 'Pts w/ tracheostomy (adult or peds)' },
 ]
 
 const cardiac = [
   { label: 'Acute Coronary'},
-  { label: 'Drug Assisted Incubation' },
-  { label: 'Allergic Reaction/Anaphylactic Shock' },
-  { label: 'Subcategory4' },
-  { label: 'Subcategory5' },
-  { label: 'Subcategory6' },
-  { label: 'Subcategory7' },
-  { label: 'Subcategory8' },
-  { label: 'Subcategory9' },
-  { label: 'Subcategory10' },
+  { label: 'Bradycardia with a Pulse' },
+  { label: 'Narrow QRS Complex Tachycardia' },
+  { label: 'Wide Complex Tachycardia with a Pulse' },
+  { label: 'Ventricular fibrillation/pulseless VT' },
+  { label: 'Asystole/PEA' },
+  { label: 'Heart Failure/Pulmonary Edema/Cardiogenic Shock' },
+  { label: 'Left ventricular assist device' },
 ]
 
+const medical = [
+  { label: 'Acute Abdominal/Flank Pain'},
+  { label: 'Dialysis/Chronic Renal Failure'},
+  { label: 'Alcohol Intoxication/Withdrawal'},
+  { label: 'Altered Mental Status/Syncope & Presyncope'},
+  { label: 'Drug Overdose/Poisoning'},
+  { label: 'Carbon monoxide (HBO)/Cyanide exposure'},
+  { label: 'Environmental emergencies: Cold related'},
+  { label: 'Environmental emergencies: Submersion'},
+  { label: 'Environmental emergencies: Heat related'},
+  { label: 'Glucose/Diabetes Emergencies'},
+  { label: 'Hypertension/Hypertensive crisis'},
+  { label: 'Psych/Behavioral Emerg/Agitated/Violent Pts'},
+  { label: 'Stroke – Transport algorithm'},
+  { label: 'Seizures'},
+  { label: 'Shock differential – Hypovolemic / Septic'},
+]
+
+const trauma = [
+  { label: 'Initial trauma care (ITC)/GCS/RTS'},
+  { label: 'DTriage & transport criteria (table)' },
+  { label: 'Cardiac Arrest due to Trauma' },
+  { label: 'Conducted electrical weapon (Taser)' },
+  { label: 'Burns' },
+  { label: 'Chest trauma' },
+  { label: 'Eye emergencies / Facial trauma' },
+  { label: 'Head trauma' },
+  { label: 'Musculoskeletal trauma' },
+  { label: 'Spine trauma/Equipment removal guidelines' },
+  { label: 'Multiple Patient Incidents' },
+  { label: 'START & JumpSTART' },
+  { label: 'Hazardous Materials Incidents' },
+  { label: 'Chemical Agents' },
+  { label: 'Active Shooter Response' },
+  { label: 'Widespread disease outbreak' },
+  { label: 'Abuse and Maltreatment: Domestic/Sexual/Elder' },
+  { label: 'Trauma in pregnancy ' },
+]
+
+const ob = [
+  { label: 'Childbirth'},
+  { label: 'Newborn and post-partum care' },
+  { label: 'Delivery complications' },
+  { label: 'Newborn resuscitation' },
+  { label: 'OB complications' },
+]
+
+const peds = [
+  { label: 'Peds initial medical care'},
+  { label: 'Peds IMC - GCS' },
+  { label: 'Peds Secondary assessment/sedation/VS ' },
+  { label: 'Special Healthcare needs ' },
+  { label: 'Peds Airway Adjuncts' },
+  { label: 'Peds Respiratory: FBO; Arrest, SIDS, BRUE' },
+  { label: 'Peds Anaphylaxis / Asthma / Croup/ Epiglottitis / RSV' },
+  { label: 'Peds cardiac SOPs' },
+  { label: 'Peds medical SOPs' },
+  { label: 'Peds ITC/Trauma score/Trauma SOPs/Abuse' },
+]
+
+const appendix = [
+  { label: 'CPR: Quality criteria; peds defib table'},
+  { label: 'Drug appendix' },
+  { label: 'Peds DRUG calculations' },
+  { label: 'Fentanyl/Ketamine Drug dosing / med routes' },
+  { label: 'QT intervals; 12-lead changes in AMI' },
+  { label: 'Medical abbreviations' },
+  { label: 'Differential of COPD/HF; CPAP' },
+  { label: 'Biologic, Nuclear, Incendiary & Chem agents' },
+  { label: 'Bioterrorist & Chemical Agents' },
+  { label: 'Norepinephrine MACRODRIP rates' },
+  { label: 'Hospital OLMC contact information' },
+  { label: 'Hospital Designations for Specialty Transports' },
+  { label: 'Pain scales' },
+
+]
+
+
 const categoryTouts = [ //the touts are the clickable image items that hold our links
-  { title: 'General Patient Management', links: categoryLinks },
+  { title: 'General Patient Management', links: general },
   { /*image: 'http://wallpaper-gallery.net/images/black-picture/black-picture-3.jpg', */title: 'Category2', links: respiratory },
   { /*image: 'http://wallpaper-gallery.net/images/black-picture/black-picture-3.jpg', */title: 'Category3', links: categoryLinks },
 ]
