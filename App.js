@@ -30,33 +30,33 @@ const styles = StyleSheet.create({
 });
 
 const general = [ //Each tout is declared like this. Labels for each sub category
-  { label: 'GENERAL PATIENT MANAGEMENT' },
-  { label: 'RESPIRATORY' },
-  { label: 'CARDIAC' },
-  { label: 'MEDICAL' },
-  { label: 'TRAUMA (adult and peds)' },
-  { label: 'OB' },
-  { label: 'PEDS' },
-  { label: 'APPENDIX' },
+  { label: 'GENERAL PATIENT MANAGEMENT'},
+  { label: 'RESPIRATORY'},
+  { label: 'CARDIAC'},
+  { label: 'MEDICAL'},
+  { label: 'TRAUMA (adult and peds)'},
+  { label: 'OB'},
+  { label: 'PEDS'},
+  { label: 'APPENDIX'},
 ]
 
 const respiratory = [
   { label: 'Airway obstruction'},
-  { label: 'Drug Assisted Intubation' },
-  { label: 'Allergic Reaction/Anaphylactic Shock' },
-  { label: 'Asthma/COPD' },
-  { label: 'Pts w/ tracheostomy (adult or peds)' },
+  { label: 'Drug Assisted Intubation'},
+  { label: 'Allergic Reaction/Anaphylactic Shock'},
+  { label: 'Asthma/COPD'},
+  { label: 'Pts w/ tracheostomy (adult or peds)'},
 ]
 
 const cardiac = [
   { label: 'Acute Coronary'},
-  { label: 'Bradycardia with a Pulse' },
-  { label: 'Narrow QRS Complex Tachycardia' },
-  { label: 'Wide Complex Tachycardia with a Pulse' },
-  { label: 'Ventricular fibrillation/pulseless VT' },
-  { label: 'Asystole/PEA' },
-  { label: 'Heart Failure/Pulmonary Edema/Cardiogenic Shock' },
-  { label: 'Left ventricular assist device' },
+  { label: 'Bradycardia with a Pulse'},
+  { label: 'Narrow QRS Complex Tachycardia'},
+  { label: 'Wide Complex Tachycardia with a Pulse'},
+  { label: 'Ventricular fibrillation/pulseless VT'},
+  { label: 'Asystole/PEA'},
+  { label: 'Heart Failure/Pulmonary Edema/Cardiogenic Shock'},
+  { label: 'Left ventricular assist device'},
 ]
 
 const medical = [
@@ -79,44 +79,44 @@ const medical = [
 
 const trauma = [
   { label: 'Initial trauma care (ITC)/GCS/RTS'},
-  { label: 'DTriage & transport criteria (table)' },
-  { label: 'Cardiac Arrest due to Trauma' },
-  { label: 'Conducted electrical weapon (Taser)' },
-  { label: 'Burns' },
-  { label: 'Chest trauma' },
-  { label: 'Eye emergencies / Facial trauma' },
-  { label: 'Head trauma' },
-  { label: 'Musculoskeletal trauma' },
-  { label: 'Spine trauma/Equipment removal guidelines' },
-  { label: 'Multiple Patient Incidents' },
-  { label: 'START & JumpSTART' },
-  { label: 'Hazardous Materials Incidents' },
-  { label: 'Chemical Agents' },
-  { label: 'Active Shooter Response' },
-  { label: 'Widespread disease outbreak' },
-  { label: 'Abuse and Maltreatment: Domestic/Sexual/Elder' },
-  { label: 'Trauma in pregnancy ' },
+  { label: 'DTriage & transport criteria (table)'},
+  { label: 'Cardiac Arrest due to Trauma'},
+  { label: 'Conducted electrical weapon (Taser)'},
+  { label: 'Burns'},
+  { label: 'Chest trauma'},
+  { label: 'Eye emergencies / Facial trauma'},
+  { label: 'Head trauma'},
+  { label: 'Musculoskeletal trauma'},
+  { label: 'Spine trauma/Equipment removal guidelines'},
+  { label: 'Multiple Patient Incidents'},
+  { label: 'START & JumpSTART'},
+  { label: 'Hazardous Materials Incidents'},
+  { label: 'Chemical Agents'},
+  { label: 'Active Shooter Response'},
+  { label: 'Widespread disease outbreak'},
+  { label: 'Abuse and Maltreatment: Domestic/Sexual/Elder'},
+  { label: 'Trauma in pregnancy '},
 ]
 
 const ob = [
   { label: 'Childbirth'},
-  { label: 'Newborn and post-partum care' },
-  { label: 'Delivery complications' },
-  { label: 'Newborn resuscitation' },
-  { label: 'OB complications' },
+  { label: 'Newborn and post-partum care'},
+  { label: 'Delivery complications'},
+  { label: 'Newborn resuscitation'},
+  { label: 'OB complications'},
 ]
 
 const peds = [
   { label: 'Peds initial medical care'},
-  { label: 'Peds IMC - GCS' },
-  { label: 'Peds Secondary assessment/sedation/VS ' },
-  { label: 'Special Healthcare needs ' },
-  { label: 'Peds Airway Adjuncts' },
-  { label: 'Peds Respiratory: FBO; Arrest, SIDS, BRUE' },
-  { label: 'Peds Anaphylaxis / Asthma / Croup/ Epiglottitis / RSV' },
-  { label: 'Peds cardiac SOPs' },
-  { label: 'Peds medical SOPs' },
-  { label: 'Peds ITC/Trauma score/Trauma SOPs/Abuse' },
+  { label: 'Peds IMC - GCS'},
+  { label: 'Peds Secondary assessment/sedation/VS '},
+  { label: 'Special Healthcare needs'},
+  { label: 'Peds Airway Adjuncts'},
+  { label: 'Peds Respiratory: FBO; Arrest, SIDS, BRUE'},
+  { label: 'Peds Anaphylaxis / Asthma / Croup/ Epiglottitis / RSV'},
+  { label: 'Peds cardiac SOPs'},
+  { label: 'Peds medical SOPs'},
+  { label: 'Peds ITC/Trauma score/Trauma SOPs/Abuse'},
 ]
 
 const appendix = [
