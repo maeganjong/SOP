@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const general = [ //for the sake of simplicity, we use the same set of category links for all touts
+const general = [ //Each tout is declared like this. Labels for each sub category
   { label: 'GENERAL PATIENT MANAGEMENT' },
   { label: 'RESPIRATORY' },
   { label: 'CARDIAC' },
@@ -136,16 +136,21 @@ const appendix = [
 
 ]
 
-
 const categoryTouts = [ //the touts are the clickable image items that hold our links
-  { title: 'General Patient Management', links: categoryLinks, length: 8 },
-  { title: 'Category2', links: respiratory, length: 5 },
-  { title: 'Category3', links: categoryLinks, length:  8},
+  { title: 'General Patient Management', links: general, length: 8 },
+  { title: 'Respiratory', links: respiratory, length: 5 },
+  { title: 'Cardiac', links: cardiac, length:  8},
+  { title: 'Medical', links: medical, length:  15},
+  { title: 'Trauma', links: trauma, length:  18},
+  { title: 'OB', links: ob, length:  5},
+  { title: 'PEDS', links: peds, length:  10},
+  { title: 'Appendix', links: appendix, length:  13},
+
 ]
 
 const SUBCATEGORY_FADE_TIME = 400 //time in ms to fade in / out our subcategories when the accordion animates
 const SUBCATEGORY_HEIGHT = 40 //to save a costly measurement process, we know our subcategory items will always have a consistent height, so we can calculate how big the overall subcategory container height needs to expand to by multiplying this by the number of items
-const categoryLinksLength = categoryLinks.length //number of subcategory items - if we werent using the same set of links for all touts, we would need to store this within each tout class probably, to know how big each container should expand to to show all the links
+//const categoryLinksLength = categoryLinks.length //number of subcategory items - if we werent using the same set of links for all touts, we would need to store this within each tout class probably, to know how big each container should expand to to show all the links
 
 //const subcategoryContainerHeight = categoryLinksLength * SUBCATEGORY_HEIGHT //total height for the container
 // var heights = this.props.length * SUBCATEGORY_HEIGHT
