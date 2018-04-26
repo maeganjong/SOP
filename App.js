@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
     //alignItems: 'flex-start',
     //justifyContent: 'flex-start',
     paddingTop: CONTAINER_PADDING_TOP,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    marginLeft: 5
     ,
   },
   toutText: {
@@ -30,14 +31,14 @@ const styles = StyleSheet.create({
 });
 
 const general = [ //Each tout is declared like this. Labels for each sub category
-  { label: 'GENERAL PATIENT MANAGEMENT'},
-  { label: 'RESPIRATORY'},
-  { label: 'CARDIAC'},
-  { label: 'MEDICAL'},
-  { label: 'TRAUMA (adult and peds)'},
-  { label: 'OB'},
-  { label: 'PEDS'},
-  { label: 'APPENDIX'},
+  { label: 'Introduction'},
+  { label: 'EMS Scopes of Practice'},
+  { label: 'General Patient Assessment/IMC'},
+  { label: 'Emergency drug alternatives'},
+  { label: 'OLMC Report/Handover Reports'},
+  { label: 'Withholding or Withdrawing Resuscitation'},
+  { label: 'Elderly patients'},
+  { label: 'Extremely obese patients'},
 ]
 
 const respiratory = [
