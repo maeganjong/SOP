@@ -1,7 +1,8 @@
 'use strict'
 
 import React from 'react';
-import { AppRegistry, Animated, Easing, Image, Text, View, StyleSheet, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
+import { AppRegistry, Animated, Easing, Image, Button, Text, View, StyleSheet, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 const CONTAINER_PADDING_TOP = 20  //to leave room for the device battery bar
 const styles = StyleSheet.create({
   container: {
@@ -31,110 +32,109 @@ const styles = StyleSheet.create({
 });
 
 const general = [ //Each tout is declared like this. Labels for each sub category
-  { label: 'Introduction'},
-  { label: 'EMS Scopes of Practice'},
-  { label: 'General Patient Assessment/IMC'},
-  { label: 'Emergency drug alternatives'},
-  { label: 'OLMC Report/Handover Reports'},
-  { label: 'Withholding or Withdrawing Resuscitation'},
-  { label: 'Elderly patients'},
-  { label: 'Extremely obese patients'},
+  { label: 'Introduction', page: 1},
+  { label: 'EMS Scopes of Practice', page: 2},
+  { label: 'General Patient Assessment/IMC', page: 3},
+  { label: 'Emergency drug alternatives', page: 5},
+  { label: 'OLMC Report/Handover Reports', page: 6},
+  { label: 'Withholding or Withdrawing Resuscitation', page: 7},
+  { label: 'Elderly patients', page: 9},
+  { label: 'Extremely obese patients', page: 10},
 ]
 
 const respiratory = [
-  { label: 'Airway obstruction'},
-  { label: 'Drug Assisted Intubation'},
-  { label: 'Allergic Reaction/Anaphylactic Shock'},
-  { label: 'Asthma/COPD'},
-  { label: 'Pts w/ tracheostomy (adult or peds)'},
+  { label: 'Airway obstruction', page: 11},
+  { label: 'Drug Assisted Intubation', page: 12},
+  { label: 'Allergic Reaction/Anaphylactic Shock', page: 13},
+  { label: 'Asthma/COPD', page: 14},
+  { label: 'Pts w/ tracheostomy (adult or peds)', page: 15},
 ]
 
 const cardiac = [
-  { label: 'Acute Coronary'},
-  { label: 'Bradycardia with a Pulse'},
-  { label: 'Narrow QRS Complex Tachycardia'},
-  { label: 'Wide Complex Tachycardia with a Pulse'},
-  { label: 'Ventricular fibrillation/pulseless VT'},
-  { label: 'Asystole/PEA'},
-  { label: 'Heart Failure/Pulmonary Edema/Cardiogenic Shock'},
-  { label: 'Left ventricular assist device'},
+  { label: 'Acute Coronary', page: 16},
+  { label: 'Bradycardia with a Pulse', page: 17},
+  { label: 'Narrow QRS Complex Tachycardia', page: 18},
+  { label: 'Wide Complex Tachycardia with a Pulse', page: 19},
+  { label: 'Ventricular fibrillation/pulseless VT', page: 20},
+  { label: 'Asystole/PEA', page: 21},
+  { label: 'Heart Failure/Pulmonary Edema/Cardiogenic Shock', page: 22},
+  { label: 'Left ventricular assist device', page: 23},
 ]
 
 const medical = [
-  { label: 'Acute Abdominal/Flank Pain'},
-  { label: 'Dialysis/Chronic Renal Failure'},
-  { label: 'Alcohol Intoxication/Withdrawal'},
-  { label: 'Altered Mental Status/Syncope & Presyncope'},
-  { label: 'Drug Overdose/Poisoning'},
-  { label: 'Carbon monoxide (HBO)/Cyanide exposure'},
-  { label: 'Environmental emergencies: Cold related'},
-  { label: 'Environmental emergencies: Submersion'},
-  { label: 'Environmental emergencies: Heat related'},
-  { label: 'Glucose/Diabetes Emergencies'},
-  { label: 'Hypertension/Hypertensive crisis'},
-  { label: 'Psych/Behavioral Emerg/Agitated/Violent Pts'},
-  { label: 'Stroke – Transport algorithm'},
-  { label: 'Seizures'},
-  { label: 'Shock differential – Hypovolemic / Septic'},
+  { label: 'Acute Abdominal/Flank Pain', page: 24},
+  { label: 'Dialysis/Chronic Renal Failure', page: 24},
+  { label: 'Alcohol Intoxication/Withdrawal', page: 25},
+  { label: 'Altered Mental Status/Syncope & Presyncope', page: 26},
+  { label: 'Drug Overdose/Poisoning', page: 27},
+  { label: 'Carbon monoxide (HBO)/Cyanide exposure', page: 28},
+  { label: 'Environmental emergencies: Cold related', page: 29},
+  { label: 'Environmental emergencies: Submersion', page: 30},
+  { label: 'Environmental emergencies: Heat related', page: 31},
+  { label: 'Glucose/Diabetes Emergencies', page: 32},
+  { label: 'Hypertension/Hypertensive crisis', page: 33},
+  { label: 'Psych/Behavioral Emerg/Agitated/Violent Pts', page: 34},
+  { label: 'Stroke – Transport algorithm', page: 35},
+  { label: 'Seizures', page: 37},
+  { label: 'Shock differential – Hypovolemic / Septic', page: 38},
 ]
 
 const trauma = [
-  { label: 'Initial trauma care (ITC)/GCS/RTS'},
-  { label: 'DTriage & transport criteria (table)'},
-  { label: 'Cardiac Arrest due to Trauma'},
-  { label: 'Conducted electrical weapon (Taser)'},
-  { label: 'Burns'},
-  { label: 'Chest trauma'},
-  { label: 'Eye emergencies / Facial trauma'},
-  { label: 'Head trauma'},
-  { label: 'Musculoskeletal trauma'},
-  { label: 'Spine trauma/Equipment removal guidelines'},
-  { label: 'Multiple Patient Incidents'},
-  { label: 'START & JumpSTART'},
-  { label: 'Hazardous Materials Incidents'},
-  { label: 'Chemical Agents'},
-  { label: 'Active Shooter Response'},
-  { label: 'Widespread disease outbreak'},
-  { label: 'Abuse and Maltreatment: Domestic/Sexual/Elder'},
-  { label: 'Trauma in pregnancy '},
+  { label: 'Initial trauma care (ITC)/GCS/RTS', page: 39},
+  { label: 'DTriage & transport criteria (table)', page: 41},
+  { label: 'Cardiac Arrest due to Trauma', page: 42},
+  { label: 'Conducted electrical weapon (Taser)', page: 42},
+  { label: 'Burns', page: 43},
+  { label: 'Chest trauma', page: 45},
+  { label: 'Eye emergencies / Facial trauma', page: 46},
+  { label: 'Head trauma', page: 47},
+  { label: 'Musculoskeletal trauma', page: 48},
+  { label: 'Spine trauma/Equipment removal guidelines', page: 49},
+  { label: 'Multiple Patient Incidents', page: 51},
+  { label: 'START & JumpSTART', page: 52},
+  { label: 'Hazardous Materials Incidents', page: 53},
+  { label: 'Chemical Agents', page: 54},
+  { label: 'Active Shooter Response', page: 55},
+  { label: 'Widespread disease outbreak', page: 57},
+  { label: 'Abuse and Maltreatment: Domestic/Sexual/Elder', page: 58},
+  { label: 'Trauma in pregnancy', page: 59},
 ]
 
 const ob = [
-  { label: 'Childbirth'},
-  { label: 'Newborn and post-partum care'},
-  { label: 'Delivery complications'},
-  { label: 'Newborn resuscitation'},
-  { label: 'OB complications'},
+  { label: 'Childbirth', page: 60},
+  { label: 'Newborn and post-partum care', page: 61},
+  { label: 'Delivery complications', page: 62},
+  { label: 'Newborn resuscitation', page: 63},
+  { label: 'OB complications', page: 64},
 ]
 
 const peds = [
-  { label: 'Peds initial medical care'},
-  { label: 'Peds IMC - GCS'},
-  { label: 'Peds Secondary assessment/sedation/VS '},
-  { label: 'Special Healthcare needs'},
-  { label: 'Peds Airway Adjuncts'},
-  { label: 'Peds Respiratory: FBO; Arrest, SIDS, BRUE'},
-  { label: 'Peds Anaphylaxis / Asthma / Croup/ Epiglottitis / RSV'},
-  { label: 'Peds cardiac SOPs'},
-  { label: 'Peds medical SOPs'},
-  { label: 'Peds ITC/Trauma score/Trauma SOPs/Abuse'},
+  { label: 'Peds initial medical care', page: 65},
+  { label: 'Peds IMC - GCS', page: 66},
+  { label: 'Peds Secondary assessment/sedation/VS ', page: 67},
+  { label: 'Special Healthcare needs', page: 69},
+  { label: 'Peds Airway Adjuncts', page: 70},
+  { label: 'Peds Respiratory: FBO; Arrest, SIDS, BRUE', page: 68},
+  { label: 'Peds Anaphylaxis / Asthma / Croup/ Epiglottitis / RSV', page: 73},
+  { label: 'Peds cardiac SOPs', page: 76},
+  { label: 'Peds medical SOPs', page: 78},
+  { label: 'Peds ITC/Trauma score/Trauma SOPs/Abuse', page: 86},
 ]
 
 const appendix = [
-  { label: 'CPR: Quality criteria; peds defib table'},
-  { label: 'Drug appendix' },
-  { label: 'Peds DRUG calculations' },
-  { label: 'Fentanyl/Ketamine Drug dosing / med routes' },
-  { label: 'QT intervals; 12-lead changes in AMI' },
-  { label: 'Medical abbreviations' },
-  { label: 'Differential of COPD/HF; CPAP' },
-  { label: 'Biologic, Nuclear, Incendiary & Chem agents' },
-  { label: 'Bioterrorist & Chemical Agents' },
-  { label: 'Norepinephrine MACRODRIP rates' },
-  { label: 'Hospital OLMC contact information' },
-  { label: 'Hospital Designations for Specialty Transports' },
-  { label: 'Pain scales' },
-
+  { label: 'CPR: Quality criteria; peds defib table', page: 89},
+  { label: 'Drug appendix' , page: 90},
+  { label: 'Peds DRUG calculations' , page: 100},
+  { label: 'Fentanyl/Ketamine Drug dosing / med routes', page: 102 },
+  { label: 'QT intervals; 12-lead changes in AMI' , page: 103},
+  { label: 'Medical abbreviations' , page: 104},
+  { label: 'Differential of COPD/HF; CPAP' , page: 106},
+  { label: 'Biologic, Nuclear, Incendiary & Chem agents' , page: 107},
+  { label: 'Bioterrorist & Chemical Agents' , page: 108},
+  { label: 'Norepinephrine MACRODRIP rates' , page: 110},
+  { label: 'Hospital OLMC contact information' , page: 111},
+  { label: 'Hospital Designations for Specialty Transports' , page: 112},
+  { label: 'Pain scales', page: 113 },
 ]
 
 const categoryTouts = [ //the touts are the clickable image items that hold our links
@@ -153,34 +153,7 @@ const SUBCATEGORY_FADE_TIME = 400 //time in ms to fade in / out our subcategorie
 const SUBCATEGORY_HEIGHT = 40 //to save a costly measurement process, we know our subcategory items will always have a consistent height, so we can calculate how big the overall subcategory container height needs to expand to by multiplying this by the number of items
 //const categoryLinksLength = categoryLinks.length //number of subcategory items - if we werent using the same set of links for all touts, we would need to store this within each tout class probably, to know how big each container should expand to to show all the links
 
-//const subcategoryContainerHeight = categoryLinksLength * SUBCATEGORY_HEIGHT //total height for the container
-// var heights = this.props.length * SUBCATEGORY_HEIGHT
-class CategoryLinks extends React.PureComponent { //using PureComponent will prevent unnecessary renders
 
-  toutPositions = [] //will hold the measured offsets of each tout when unexpanded
-
-  render() {
-    return (
-      <Animated.View //view should be animated because its opacity will change
-        style={{ position: 'absolute', top: 0, left: 0 }}
-      >
-        <View>
-          {
-            this.props.links && this.props.links.map((link) => { //render our subcategory links
-              return (
-                <View
-                  key={link.label}
-                >
-                  <Text style={styles.subcategoryLinks}>{link.label}</Text>
-                </View>
-              )
-            })
-          }
-        </View>
-      </Animated.View>
-    )
-  }
-}
 
 class Tout extends React.PureComponent { //using PureComponent will prevent unnecessary renders
 
@@ -287,7 +260,7 @@ class Tout extends React.PureComponent { //using PureComponent will prevent unne
 
 AppRegistry.registerComponent('Tout', () => Tout);
 
-export default class scrollAccordion extends React.PureComponent { //scroll accordion is our parent class - it renders the touts and their subcategories
+class scrollAccordion extends React.PureComponent { //scroll accordion is our parent class - it renders the touts and their subcategories
 
   measurements = []
 
@@ -336,5 +309,71 @@ export default class scrollAccordion extends React.PureComponent { //scroll acco
         </ScrollView>
       </View>
     )
+  }
+}
+
+
+class pdfScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+        <Button
+          title="Go to Details... again"
+          onPress={() => this.props.navigation.navigate('Pdf')}
+        />
+        <Button
+          title="Go back"
+          onPress={() => this.props.navigation.goBack()}
+        />
+      </View>
+    );
+  }
+}
+
+
+
+//const subcategoryContainerHeight = categoryLinksLength * SUBCATEGORY_HEIGHT //total height for the container
+// var heights = this.props.length * SUBCATEGORY_HEIGHT
+
+
+class CategoryLinks extends React.PureComponent { //using PureComponent will prevent unnecessary renders
+  render() {
+    const {navigate} = this.props.navigation;
+    return (
+      <Animated.View //view should be animated because its opacity will change
+        style={{ position: 'absolute', top: 0, left: 0 }}
+      >
+        <View>
+          {
+            this.props.links && this.props.links.map((link) => { //render our subcategory links
+              return (
+                <View
+                  key={link.label}
+                >
+                  <Text onPress={() => navigate('Pdf'/*, {pageNum: link.page,});*/)} style={styles.subcategoryLinks}>{link.label}</Text>
+                </View>
+              )
+            })
+          }
+        </View>
+      </Animated.View>
+    )
+  }
+}
+
+const RootStack = StackNavigator({
+  Home: {
+    screen: scrollAccordion
+  },
+  Pdf: {
+    screen: pdfScreen
+  },
+});
+AppRegistry.registerComponent('SOP', () => scrollAccordion);
+
+export default class App extends React.Component {
+  render() {
+    return <RootStack />;
   }
 }

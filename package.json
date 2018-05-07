@@ -22,6 +22,8 @@
     "@expo/json-file": "^8.0.0",
     "expo": "^26.0.0",
     "react": "16.3.0-alpha.1",
-    "react-native": "0.54.0"
+    "react-native": "0.54.0",
+    "react-native-pdf-view": "^0.3.2",
+    "react-navigation": "^1.5.11"
   }
 }
